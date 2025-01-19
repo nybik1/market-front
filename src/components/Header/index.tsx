@@ -1,30 +1,27 @@
 "use client";
 import React from "react";
-import { LanguageCodeType, languages } from "@/types/general";
+import { LanguageCodeType } from "@/types/general";
 import { useRouter, useParams } from "next/navigation";
+import styles from "./index.module.scss";
+
+import { useTranslation } from "@/contexts/TranslationContext";
+import Navigation from "../Navigation";
+import LocaleSwitcher from "../LocaleSwitcher";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 const Header = () => {
   const router = useRouter();
   const params = useParams();
   const lang = params.lang as LanguageCodeType;
+  const dict = useTranslation();
+  const auth = useSelector((state: RootState) => state.authReducer.auth);
 
-  const handleChangeLanguage = (code: LanguageCodeType) => {
-    if (lang === code) return;
-    router.replace(`/${code}`);
-  };
   return (
-    <header>
-      <h1>
-        Header
-        {languages.map((language) => (
-          <button
-            key={language.code}
-            onClick={() => handleChangeLanguage(language.code)}
-          >
-            {language.label}
-          </button>
-        ))}
-      </h1>
+    <header className={styles.header}>
+      <div className={styles.logo}>Logo</div>
+      <Navigation />
+      <LocaleSwitcher />
     </header>
   );
 };

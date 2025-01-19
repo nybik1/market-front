@@ -1,3 +1,9 @@
 {
-  "hello": "привет"
+  "hello": "привет",
+  "navigation": {
+    "home": "Главная",
+    "about": "О нас",
+    "contact": "Контакты",
+    "catalog": "Каталог"
+  }
 }

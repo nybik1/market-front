@@ -1,3 +1,9 @@
 {
-  "hello": "hello"
+  "hello": "hello",
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "catalog": "Catalog"
+  }
 }
